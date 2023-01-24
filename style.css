@@ -1,0 +1,197 @@
+/* **********Reset********** */
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+
+* {
+margin: 0;
+padding: 0;
+
+}
+
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+  }
+
+
+body {
+    line-height: 1.5;
+  }
+
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+
+/*#root, #__next {
+    isolation: isolate;
+  } */
+
+/* **********Fin Reset********** */
+
+h1{
+    font-weight: 400;
+}
+
+h2{
+    font-weight: 300;
+}
+
+hr{
+    border-bottom: 1px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* select{
+    width:500px;
+} */
+
+.container {
+    background-color: rgba(0, 0, 0, 0.856);
+    color: rgba(255, 255, 255, 0.87);
+    font-family: roboto;
+    margin-left: auto;
+    margin-right: auto;
+    width:90rem;
+    padding:1rem;
+}
+
+.container_0{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    /*grid-template-columns: repeat(3, 30rem);*/
+}
+
+.titre{
+    position: absolute;
+    top: 80px;
+    display: flex;
+     width: 80%;
+    justify-content: space-evenly;
+
+}
+
+.eleve{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    margin-bottom: 52px;
+    margin-top: 70px;
+}
+
+.eleve_title{
+
+    display: block;
+    width: 300px;
+    
+}
+
+.matiere_title{
+
+    display: block;
+    width: 300px;
+}
+
+.note_title{
+    display: block;
+    width: 300px;
+    
+}
+
+.window0{
+    display: block;
+    width: 150px;
+    
+}
+
+.window1{
+    display: block;
+    width: 150px;
+    
+}
+
+.window2{
+    display: block;
+    width: 150px;
+    
+}
+
+.matiere{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    margin-bottom: 104px;
+    margin-top: 70px;
+    
+}
+
+.note{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    margin-top: 70px;
+}
+
+input {
+    width:300px;
+    border-radius: 0.3rem;
+    margin: 0.4rem;
+}
+
+select{
+    margin: 0.4rem;
+}
+
+button{
+    width:5rem;
+    height:2rem;
+    background-color: rgba(0, 0, 0, 0.432);
+    color: rgba(255, 255, 255, 0.87);
+    border-radius: 0.3rem;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 14rem;
+   /* margin-top: 1.5rem;*/
+    /* display: flex;
+    float: right; */
+}
+
+.onOff{
+    background-color: rgba(0, 0, 0, 0.432);
+    color: rgba(255, 255, 255, 0.87);
+    width:3rem;
+    height: 3rem;
+    cursor: pointer;
+    display: flex;
+    float: right;
+    
+}
+
+.hidden{
+    display:none;
+}  
