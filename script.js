@@ -1,22 +1,22 @@
-let student = document.querySelector('.window0');
+let eleves = document.querySelector('.window0');
 let mat = document.querySelector('.window1');
 let affichNote = document.querySelector('.window2');
 
 let btn1 = true, btn2 = true, btn3 = true;
 
 onOffElev.addEventListener('click', () => {
-    student.classList.add("hidden");
+    eleves.classList.add("hidden");
     if(btn1){
         onOffElev.value = "OFF";
         btn1 = false;
     }else {
         onOffElev.value = "ON";
         btn1 = true;
-        student.classList.remove("hidden");
+        eleves.classList.remove("hidden");
     }
 })
 
-console.log(student);
+console.log(eleves);
 onOffMat.addEventListener('click', () => {
     mat.classList.add("hidden");
     if(btn2){
@@ -41,118 +41,273 @@ onOffNote.addEventListener('click', () => {
     }
 })
 
-
-// function changeText(){
-//     let element = document.getElementsByClassName("onOff");
-//     console.log(element);
-//     if (element.value=="ON") 
-//         element.value = "OFF";
-//     else 
-//         element.value = "ON";
-// }
-
 const result = document.querySelector('#result');
 
-let message = "", nom, prenom, matiere;
+let message = "", nom, prenom;
 
 Valider = () => {
     nom = document.querySelector('#ajoutNom').value;
     prenom = document.querySelector('#ajoutPrenom').value;
+    //mati = document.querySelector('ajoutMatiere').value;
     Afficher();
 }
 
-/*ValiderajoutMat = () => {
-    mat = document.querySelector('#ajoutMatiere').value;
-    Afficher();
-}*/
 
 Afficher = () => {
     //result.textContent += `<h3> Vous avez saisi : ${nom} ${prenom} </h3>`
-    result.innerHTML += `<h3> Vous avez saisi : ${nom} ${prenom} </h3>`
+    result.innerHTML += `<h3> Vous avez ajouté l'élève : ${prenom} ${nom} </h3>`
+    //result.texContent = "";
 }
 
-// select.addEventListener("change", () => {
-    //     let moyMat = select.value;
-    //     if(moyMat != 0){
-        //         output.textContent = `La moyenne de la classe en ${matiere} est de : ${moyMat}`;
-        //     }else {
-            //         output.textContent="";
-            //     }
-            
-            // });
-            //
-            // const select = document.getElementById("mySelect");
-            
-            // select.addEventListener("change", () => {
-                //     console.log(select.value);
-                // });
-                
                 let etudiants = [ 
                     { 
-                        prenom: "John", 
-                        nom: "Smith", 
+                        prenom: "john", 
+                        nom: "smith", 
                         notes: {
-                            'Français':[16,15,9,12],
-                            'Mathématiques':[15,12,14,8]
+                            'français':[16,15,9,12],
+                            'mathématiques':[15,12,14,8]
                         }
                     }, 
 
                     { 
-                        prenom: "Drew", 
-                        nom: "Baxter", 
+                        prenom: "drew", 
+                        nom: "baxter", 
                         notes : {
-                            'Français':[12,6,5,12],
-                            'Mathématiques':[13,8,10,8]
+                            'français':[12,6,5,12],
+                            'mathématiques':[13,8,10,8]
                         }
                             
                         } 
                     
                 ]; 
                 
-                let matieres = ["Français", "Anglais", "Maths", "Histoire"];
-                
-                const btn = document.getElementById('valider0');
+                let matieres = ["français", "mathématiques","anglais", "histoire"];
+
+                console.table(matieres);
+
+                let btnAjoutStudent = document.getElementById('valider0');
+                console.log(btnAjoutStudent);
+
+                let btnAjoutMat = document.getElementById('valider1');
+                let btnAjoutNote = document.getElementById('valider2');
                 let mySelect = document.getElementById('select_elev');
-                //let mySelectMat = document.getElementById('mat_select_0');
+                let mySelectMat = document.getElementById('mat_select');
+                let selectAll = document.getElementById('select_elevAll');
+                let selectAllMat = document.getElementById('mat_selectAll');
+
                 console.log(mySelect.innerHTML);
-                //console.log(mySelectMat.innerHTML);
-                // for(let i = 0; i<etudiants.length; i++){
-                    //         console.log(etudiants[i].prenom +" "+ etudiants[i].nom)
+
+                const capitalize = (value) => {
+                    // console.log(value);
+                    value = value.toLowerCase(); 
+                    return value.replace(value[0],value[0].toUpperCase());
+                }
                     
-                    // }
-                    
-                    const refreshEleveSelect = () => {
+                    const refreshSelect = () => {
                         mySelect.innerHTML =`<option value="0">Sélectionnez un élève</option>`;
+                        selectAll.innerHTML =`<option value="0">Toute la classe</option>`;
                         etudiants.forEach(eleve => {
                             //console.log(eleve.nom);
-                            select_elev.innerHTML += `<option value ="${etudiants.indexOf(eleve)+1}"> ${eleve.prenom} ${eleve.nom}</option>`;
+                            select_elev.innerHTML += `<option value ="${etudiants.indexOf(eleve)+1}">${capitalize(eleve.prenom)} ${capitalize(eleve.nom)}</option>`;
+                            selectAll.innerHTML += `<option value ="${etudiants.indexOf(eleve)+1}">${capitalize(eleve.prenom)} ${capitalize(eleve.nom)}</option>`;
                         });
+                        mySelectMat.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
+                        selectAllMat.innerHTML =`<option value="0">Toutes les matières</option>`;
+                            matieres.forEach(matiere => {
+                                //console.log();
+                                mySelectMat.innerHTML += `<option value ="${matieres.indexOf(matiere)+1}"> ${capitalize(matiere)} </option>`;
+                                selectAllMat.innerHTML += `<option value ="${matieres.indexOf(matiere)+1}"> ${capitalize(matiere)} </option>`;
+                            });
                     }
-                    refreshEleveSelect();
+                    refreshSelect();
 
-                    // const refreshMatSelect = () => {
-                    //     mySelectMat.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
-                    //     matieres.forEach(eleve => {
-                    //         //console.log(eleve.nom);
-                    //         mySelectMat.innerHTML += `<option value ="${etudiants.indexOf(eleve)+1}"> ${eleve.matiere} </option>`;
-                    //     });
-                    // }
-                    // refreshMatSelect();
-
-                    btn.addEventListener("click", () => {
-
+                    btnAjoutStudent.addEventListener("click", () => {
+                        
                         let newName = document.getElementById("ajoutNom").value;
                         let newPrenom = document.getElementById("ajoutPrenom").value;
                        // let newMat = document.getElementById("ajoutMatiere").value;
-                        etudiants.push({
-                            nom : newName,
-                            prenom : newPrenom,
-                           // matières : newMat
-                        })
 
+                       const newStudent = {
+                        nom : newName, // document.getElementById("ajoutNom").value;
+                        prenom : newPrenom, // document.getElementById("ajoutPrenom").value;
+                       }
+                        // etudiants.push({
+                        //     nom : newName,
+                        //     prenom : newPrenom,
+                        //    // matières : newMat
+                        // })
+
+                        etudiants.push(newStudent);
+
+                        refreshSelect();
                         
                         console.table(etudiants);
                         // newPrenom.textContent = "";
                         // newName.value = "";
                         
                     });
+
+                    btnAjoutMat.addEventListener("click", () => {
+                        
+                       const newMat = document.getElementById("ajoutMatiere").value.toLowerCase();
+ 
+                       matieres.push(newMat);
+
+                       refreshSelect();
+                       
+                       console.table(matieres);
+                       // newPrenom.textContent = "";
+                       // newName.value = "";
+                       
+                   });
+
+                   btnAjoutNote.addEventListener("click", () => {
+                        
+                   const newNote = Number(document.getElementById("notes").value);
+                   const student = etudiants[(document.querySelector("#select_elev").value)-1];
+                   console.log(student)
+                    
+                   const matAjout = document.querySelector("#mat_select").value;
+
+                   //console.log(matAjout)
+                   const mat = matieres[matAjout-1];
+                   //console.log(matieres[matAjout-1]);
+                   //console.log(student.notes['français']);
+
+                   student.notes[mat].push(newNote);
+                   console.table(matieres);
+                   // newPrenom.textContent = "";
+                   // newName.value = "";
+                   
+               });
+
+
+            const tableDatas = document.querySelector('#table-data');
+
+            selectAll.addEventListener("change", () =>{
+                refreshTableElements();
+                refreshAverageGrade();
+            })
+
+            selectAllMat.addEventListener("change", () =>{
+                refreshTableElements();
+                refreshAverageGrade();
+            })
+
+            const averageGradeOutput = document.getElementById('average_output');
+
+            const calculateAverage = (notes) =>{
+                let sum = 0;
+                for(const note of notes) sum += note;
+                return (sum / grades.length).toFixed(1);
+            }
+
+            const refreshAverageGrade = () =>{
+                console.log("refresh grade");
+                let currentGrades = [];
+            }
+
+
+            const refreshTableElements = () => {
+
+                console.log('refresh table');
+                tableDatas.innerHTML= "";
+                
+
+
+                if(selectAll.value == 0 && selectAllMat.value == 0){
+                    console.log("cas toute la classe et toutes les matières");
+                    for(const student of etudiants){
+                        for(const matiere in student.notes){
+                            for(const note of student.notes[matiere]){
+                                tableDatas.innerHTML += 
+                                `<tr>
+    
+                                <td>${student.nom}</td>
+                                <td>${student.prenom}</td>
+                                <td>${matiere}</td>
+                                <td>${note}</td>
+    
+                                </tr>
+    
+                                `
+                            }
+    
+                        }
+                    
+                    }
+
+                }else if(selectAllMat.value == 0){
+                    console.log("aucune matière");
+                    const student = etudiants[(document.querySelector("#select_elevAll").value)-1];
+                    //console.log((document.querySelector("#select_elevAll").value)-1);
+                    for(const matiere in student.notes){
+                        for(const note of student.notes[matiere]){
+                            tableDatas.innerHTML +=
+
+                             `  <tr>
+                                <td>${student.nom}</td>
+                                <td>${student.prenom}</td>
+                                <td>${matiere}</td>
+                                <td>${note}</td>
+                                </tr>
+                            `
+                    }
+                    }
+                
+                }else if(selectAll.value == 0){
+                    console.log("aucun étudiant");
+                    const student = etudiants[(document.querySelector("#select_elevAll").value)-1];
+                    const matAjout = document.querySelector("#mat_selectAll").value;
+                    const mat = matieres[matAjout-1]
+                    for (const student of etudiants){
+                        for(const note of student.notes[mat]){
+                            tableDatas.innerHTML += 
+
+                             `   
+                                 <tr>
+                                 <td>${student.nom}</td>
+                                 <td>${student.prenom}</td>
+                                 <td>${matAjout}</td>
+                                 <td>${note}</td>
+                                 </tr>
+
+                            `
+                    }
+                    }
+
+                }else{
+                    console.log("un étudiant et une matière");
+                    const student = etudiants[(document.querySelector("#select_elevAll").value)-1];
+                    const matAjout = document.querySelector("#mat_selectAll").value;
+                    const mat = matieres[matAjout-1]
+
+                    for(const note of student.notes[mat]){
+                        tableDatas.innerHTML += 
+
+                        `
+                        <tr>
+                        <td>${student.nom}</td>
+                        <td>${student.prenom}</td>
+                        <td>${mat}</td>
+                        <td>${note}</td>
+                        </tr>
+
+                        `
+
+                    }
+                    
+                }
+
+            };
+                        
+    
+            refreshSelect();                        
+                    
+                    
+                    
+
+
+
+
+            

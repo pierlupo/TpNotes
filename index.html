@@ -47,10 +47,10 @@
             <div class="eleve">
                 <div class="window0">
                     <label for="ajoutNom">Nom:</label>
-                    <input type="text" name="" id="ajoutNom" placeholder="Nom" /><br>
+                    <input type="text" name="" id="ajoutNom" placeholder="Nom"/><br>
                     <label for="ajoutPrenom">Prénom:</label>
-                    <input type="text" name="" id="ajoutPrenom" placeholder="Prénom" />
-                    <button type="submit" id="valider0" onclick="Valider()">AJOUTER</button>
+                    <input type="text" name="" id="ajoutPrenom" placeholder="Prénom"/>
+                    <button type="submit" id="valider0" class="valider" onclick="Valider()">AJOUTER</button>
                 </div>
             </div>
 
@@ -58,8 +58,8 @@
             <div class="matiere">
                 <div class="window1">
                     <label for="ajoutMatiere">Intitulé:</label>
-                    <input type="text" name="" id="ajoutMatiere" placeholder="Nouvelle Matière" />
-                    <button type="submit" id="valider1" onclick="ValiderajoutMat()">>AJOUTER</button>
+                    <input type="text" name="" id="ajoutMatiere" placeholder="Nouvelle Matière"/>
+                    <button type="submit" id="valider1" class="valider" onclick="Valider()">AJOUTER</button>
                 </div>
             </div>
 
@@ -69,16 +69,16 @@
                     <label for="selecEleve">Élève:</label>
                     <!-- <input type="text" name="" id="selecEleve" placeholder="Sélectionner un élève" /> -->
                     <select name="" id="select_elev" class="select_elev">
-                        <option value="0">Sélectionner un élève:</option>
+                        <option value="0"></option>
                     </select><br>
                     <label for="notes">Notes:</label>
                     <input type="text" name="" id="notes" placeholder="" /><br>
                     <label for="selecMatiere">Matière:</label>
                     <!-- <input type="text" name="" id="selecMatiere" placeholder="Sélectionner une matière" /> -->
                     <select name="" id="mat_select" class="mat_select">
-                        <option value="0">Sélectionner une matière:</option>
+                        <option value="0"></option>
                     </select>
-                    <button type="submit" id="valider" onclick="ValiderChoix()">AJOUTER</button>
+                    <button type="submit" id="valider2" class="valider" onclick="Valider()">AJOUTER</button>
                 </div>
             </div>
 
@@ -87,24 +87,31 @@
             <hr>
             <h2>Sélection:</h2>
             <hr>
+            <div class="selection">
             <label for="touteLaClasse">Élève:</label>
             <!-- <input type="text" name="" id="touteLaClasse" placeholder="Toute la classe" /> -->
-            <select name="" id="select_elev1" class="select_elev">
-                <option value="0">Toute la classe:</option>
+            <select name="" id="select_elevAll" class="select_elev">
+                <option value="0"></option>
             </select>
             <label for="toutesLesMatieres">Matière:</label>
             <!-- <input type="text" name="" id="toutesLesMatieres" placeholder="Toutes les matières" /> -->
-            <select name="" id="mat_select1" class="mat_select">
-                <option value="0">Matières:</option>
+            <select name="" id="mat_selectAll" class="mat_select">
+                <option value="0"></option>
             </select>
+            </div>
             <div id="selectOutput">
+
+            </div>
+            <div id="average_output">
 
             </div>
         </div>
         <div id="result"></div>
+        <hr>
         <h2>Notes</h2>
         <hr>
         <table>
+            <thead class="" id="teteTab">
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -112,6 +119,10 @@
                 <th>Note</th>
 
             </tr>
+        </thead>
+        <tbody id="table-data">
+
+        
             <tr>
                 <td></td>
                 <td></td>
@@ -128,6 +139,7 @@
                 <td></td>
                 <td></td>
             </tr>
+        </tbody>
         </table>
     </div>
     </div>

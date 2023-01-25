@@ -161,28 +161,44 @@ input {
     width:300px;
     border-radius: 0.3rem;
     margin: 0.4rem;
+    border: none;
+    height: 30px;
 }
 
 select{
     margin: 0.4rem;
+    cursor:pointer;
+    background-color: cadetblue;
+    border-radius: 0.2rem;
+    height: 30px;
+    font-family: roboto;
+    border: none;
 }
+
 
 button{
     width:5rem;
     height:2rem;
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(128, 128, 128, 0.575);
     color: rgba(255, 255, 255, 0.87);
     border-radius: 0.3rem;
     font-size: 14px;
     cursor: pointer;
     margin-left: 14rem;
+    border: none;
    /* margin-top: 1.5rem;*/
     /* display: flex;
     float: right; */
 }
 
+button:hover{
+    background-color: rgba(255, 187, 0, 0.479);
+    transition: all 1s linear;
+    color:rgba(0, 0, 0, 0.712);
+}
+
 .onOff{
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(128, 128, 128, 0.575);
     color: rgba(255, 255, 255, 0.87);
     width:3rem;
     height: 3rem;
@@ -192,6 +208,50 @@ button{
     
 }
 
+.onOff:hover{
+    background-color: rgba(255, 187, 0, 0.479);
+    transition: all 1s linear;
+    color:rgba(0, 0, 0, 0.712);
+}
+
 .hidden{
     display:none;
-}  
+}
+
+#mat_selectAll{
+    width: 500px;
+    text-align: center;
+}
+
+#select_elevAll{
+    width: 500px;
+    text-align: center;
+}
+
+#select_elev{
+    width:300px;
+    text-align: center;
+}
+
+
+#mat_select{
+    width:300px;
+    text-align: center;
+}
+
+.selection{
+    text-align: center;
+}
+/* table{
+    width:100%;
+}
+#teteTab{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+#teteTab th{
+    display: inline block;
+    width: 200px;
+    justify-content: center;
+} */
